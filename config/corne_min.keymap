@@ -10,10 +10,16 @@
 #define NAV   3
 #define MEDIA 4
 
+// Match the QMK caps-word feel: keep going on numbers, minus/underscore,
+// backspace and delete (QMK caps_word_press_user).
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
+};
+
 / {
     behaviors {
         // Home-row mods (and shifted mod-taps on SYM/NUM).
-        // Replicates your QMK feel: TAPPING_TERM 200, no permissive/HOKP,
+        // Replicates your QMK feel: TAPPING_TERM 200, no permissive-hold,
         // no quick-tap  ->  flavor "tap-preferred".
         hm: home_row_mod {
             compatible = "zmk,behavior-hold-tap";
@@ -43,6 +49,7 @@
         compatible = "zmk,keymap";
 
         base_layer {
+            display-name = "Base";
             bindings = <
 &kp ESC     &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y       &kp U         &kp I        &kp O        &kp P          &caps_word
 &kp TAB     &hm LGUI A   &hm LALT S   &hm LSHFT D   &hm LCTRL F   &kp G          &kp H       &hm LCTRL J   &hm RSHFT K  &hm LALT L   &hm RGUI SEMI  &kp ESC
@@ -52,6 +59,7 @@
         };
 
         sym_layer {
+            display-name = "Sym";
             bindings = <
 &trans   &kp LT           &kp GT           &kp SQT          &kp DQT            &arrow      &kp AMPS   &kp LPAR         &kp RPAR         &kp PRCNT        &kp DLLR         &kp RA(Y)
 &trans   &hm LGUI EXCL    &hm LALT MINUS   &hm LSHFT PLUS   &hm LCTRL EQUAL    &kp HASH    &kp PIPE   &hm LCTRL LBRC   &hm RSHFT RBRC   &hm LALT GRAVE   &hm RGUI QMARK   &trans
@@ -61,6 +69,7 @@
         };
 
         num_layer {
+            display-name = "Num";
             bindings = <
 &trans   &trans      &kp F7         &kp F8         &kp F9          &kp F10    &kp COMMA  &kp N7         &kp N8         &kp N9         &trans         &trans
 &trans   &kp LGUI    &hm LALT F4    &hm LSHFT F5   &hm LCTRL F6    &kp F11    &kp DOT    &hm LCTRL N4   &hm RSHFT N5   &hm LALT N6    &hm RGUI N0    &trans
@@ -70,6 +79,7 @@
         };
 
         nav_layer {
+            display-name = "Nav";
             bindings = <
 &trans   &trans     &trans     &kp LC(LS(LA(F14)))  &kp LC(LS(LA(F15)))   &trans   &trans      &kp HOME   &kp UP     &kp END    &trans   &trans
 &trans   &kp LGUI   &kp LALT   &hm RSHFT LG(LEFT)   &hm LCTRL LG(RIGHT)   &trans   &kp PG_UP   &kp LEFT   &kp DOWN   &kp RIGHT  &trans   &trans
@@ -79,12 +89,29 @@
         };
 
         media_layer {
+            display-name = "Media";
             bindings = <
 &bt BT_CLR    &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG   &trans   &trans     &trans      &trans      &trans        &trans
 &trans        &trans          &trans        &trans        &trans        &trans         &trans   &kp C_PP   &kp C_NEXT  &kp C_PREV  &kp C_VOL_UP  &kp C_VOL_DN
 &bootloader   &studio_unlock  &trans        &trans        &trans        &trans         &trans   &trans     &trans      &trans      &trans        &bootloader
                                         &trans        &trans        &trans         &trans   &trans     &trans
             >;
+        };
+
+        // Empty slots so ZMK Studio can add layers at runtime.
+        extra1 {
+            display-name = "Extra-1";
+            status = "reserved";
+        };
+
+        extra2 {
+            display-name = "Extra-2";
+            status = "reserved";
+        };
+
+        extra3 {
+            display-name = "Extra-3";
+            status = "reserved";
         };
     };
 };
