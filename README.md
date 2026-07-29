@@ -7,6 +7,10 @@ This repository produces firmware for two different Corne Min configurations:
 
 <br>
 
+## How to force bootloader
+
+1. Short the two "Boot" pins on the back using soldering tin.
+2. Insert USB cable
 
 ---
 
