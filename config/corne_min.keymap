@@ -16,6 +16,12 @@
     continue-list = <UNDERSCORE MINUS BACKSPACE DELETE N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
 };
 
+// True one-shot shift: release the sticky mod on the next key's *press*
+// (default is on its release, which shifts two keys when rolling fast).
+&sk {
+    quick-release;
+};
+
 / {
     behaviors {
         // Home-row mods (and shifted mod-taps on SYM/NUM).
