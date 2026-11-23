@@ -89,7 +89,7 @@
             bindings = <
 &trans   &trans     &trans     &kp LC(LS(LA(F14)))  &kp LC(LS(LA(F15)))   &trans   &trans      &kp HOME   &kp UP     &kp END    &trans   &trans
 &trans   &kp LGUI   &kp LALT   &hm RSHFT LG(LEFT)   &hm LCTRL LG(RIGHT)   &trans   &kp PG_UP   &kp LEFT   &kp DOWN   &kp RIGHT  &trans   &trans
-&trans   &trans     &trans     &kp LC(LS(LBKT))     &kp LC(LS(RBKT))      &trans   &kp PG_DN   &kp LC(LS(LA(LG(F13))))  &trans  &trans  &trans  &trans
+&trans   &trans     &trans     &kp LC(LS(LBKT))     &kp LC(LS(RBKT))      &trans   &kp PG_DN   &kp LC(LS(LA(LG(F13))))  &kp LC(LS(LA(F16)))  &trans  &trans  &trans
                                &trans               &trans                &trans   &trans      &trans     &trans
             >;
         };
